@@ -1,0 +1,127 @@
+:root {
+  --navy-900: #061a2f;
+  --navy-800: #0a2440;
+  --navy-700: #10365f;
+
+  --white: #ffffff;
+  --bg: #f4f7fc;
+  --text: #0b1b2b;
+  --muted: #607089;
+
+  --border: rgba(10, 36, 64, 0.12);
+  --shadow: 0 12px 30px rgba(0,0,0,0.12);
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ===== NAVBAR (COMMON) ===== */
+.topbar {
+  background: var(--navy-900);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.brand-logo {
+  height: 38px;
+  background: white;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.nav-right {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.nav-link {
+  color: #dbe7ff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: white;
+  background: rgba(255,255,255,0.08);
+}
+
+.nav-btn {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  font-size: 22px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Mobile dropdown nav */
+@media (max-width: 768px) {
+  .nav-right {
+    display: none;
+    position: absolute;
+    top: 58px;
+    right: 18px;
+    width: min(240px, 92vw);
+    background: var(--navy-900);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .nav-right.open { display: flex; }
+  .nav-btn { width: 100%; }
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
